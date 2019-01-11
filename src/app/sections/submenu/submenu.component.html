@@ -1,0 +1,9 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="topic.link" *ngFor="let topic of topics">
+    <mat-icon color="accent">label</mat-icon>
+    <span>{{topic.name}}</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <app-submenu></app-submenu>
+    <span>Categories</span>
+    <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+    <span>{{topicName}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div *ngIf="!items.length" class="box">
+  <mat-card class="bg blue">
+    <mat-card-header>
+      <mat-card-title>Category is empty</mat-card-title>
+      <mat-card-subtitle>Let's add some elements</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button>NEW</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <div>
+        <i class="spacer"></i>
+        <mat-icon class="icon bm pink">bookmark</mat-icon>
+        <mat-icon class="icon bm purple">bookmark</mat-icon>
+        <mat-icon class="icon bm blue">bookmark</mat-icon>
+        <mat-icon class="icon bm green">bookmark</mat-icon>
+        <mat-icon class="icon bm yellow">bookmark</mat-icon>
+        <mat-icon class="icon bm orange">bookmark</mat-icon>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="fab">
+    <button mat-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

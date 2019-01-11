@@ -1,0 +1,17 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/categories']">
+    <mat-icon color="accent" routerLinkActive="primary">label</mat-icon>
+    <span>Categories</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon color="accent" routerLinkActive="primary">voicemail</mat-icon>
+    <span>My lists</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon color="accent" routerLinkActive="primary">notifications_off</mat-icon>
+    <span>Other</span>
+  </button>
+</mat-menu>
