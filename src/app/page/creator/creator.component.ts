@@ -4,29 +4,24 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../categories/categories.service';
 
 @Component({
-  selector: 'app-group',
-  templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']
+  selector: 'app-creator',
+  templateUrl: './creator.component.html',
+  styleUrls: ['./creator.component.scss']
 })
-export class GroupComponent implements OnInit {
+export class CreatorComponent implements OnInit {
 
-  topicName = 'Group';
-  items = [];
-  color = 'bg blue';
+  topicName = 'Create';
 
   constructor(
     private router: Router,
-    private source: CategoriesService) { }
+    private source: CategoriesService
+  ) { }
 
   ngOnInit() {
     const topic = this.source.topics.find(item =>
-      item.link === this.router.url);
+      this.router.url.startsWith(item.link));
 
     !topic ? this.router.navigate(['/categories']) : this.topicName = topic.name;
-  }
-
-  bg(color: string) {
-    this.color = `bg ${color}`;
   }
 
 }

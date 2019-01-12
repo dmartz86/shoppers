@@ -52,6 +52,7 @@ import { MenuComponent } from './sections/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { GroupComponent } from './page/group/group.component';
 import { SubmenuComponent } from './sections/submenu/submenu.component';
+import { CreatorComponent } from './page/creator/creator.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { SubmenuComponent } from './sections/submenu/submenu.component';
     HeaderComponent,
     MenuComponent,
     GroupComponent,
-    SubmenuComponent
+    SubmenuComponent,
+    CreatorComponent
   ],
   imports: [
     BrowserModule,
