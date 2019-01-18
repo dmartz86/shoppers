@@ -7,3 +7,31 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <mat-icon class="icon double" color="primary">attach_money</mat-icon>
+    </div>
+    <mat-card-title>Set the budget</mat-card-title>
+    <mat-card-subtitle>Amount expendable limit</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="budget">{{budget}}</div>
+    <div class="numbers center grid">
+      <div class="col" *ngFor="let group of options">
+        <span class="box" *ngFor="let digit of group">
+          <button mat-fab (click)="command(digit)" *ngIf="!digit.icon"
+          [disabled]="isDisabled(digit)"
+          >
+            <div class="icon number">{{digit}}</div>
+          </button>
+          <button mat-fab (click)="command(digit.digit)" *ngIf="digit.icon" color="primary" [disabled]="budget == 0 && digit.digit !='N'">
+            <div class="icon number">
+              <mat-icon>{{digit.icon}}</mat-icon>
+            </div>
+          </button>
+        </span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

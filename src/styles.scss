@@ -16,6 +16,10 @@ body {
 
 .icon {
   padding: 0 14px;
+  &.double.mat-icon.mat-primary.material-icons {
+    font-size: 62px;
+    display: contents;
+  }
 }
 
 .spacer {
@@ -76,4 +80,25 @@ body {
   col {
     display: inline-block;
   }
+}
+.budget {
+  font-size: 48px;
+  margin-right: 16px;
+  margin-left: 16px;
+  text-align: right;
+}
+.numbers {
+  button {
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
+  span:last-child {
+    margin-left: 12px;
+  }
+}
+.number {
+  font-size: 32px;
+}
+.center {
+  text-align: center;
 }
