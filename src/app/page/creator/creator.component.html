@@ -8,24 +8,30 @@
 </mat-toolbar>
 
 <mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image">
+  <mat-card-header *ngIf="!hasBudget">
+    <div mat-card-avatar>
       <mat-icon class="icon double" color="primary">attach_money</mat-icon>
     </div>
     <mat-card-title>Set the budget</mat-card-title>
-    <mat-card-subtitle>Amount expendable limit</mat-card-subtitle>
+    <mat-card-subtitle>Amount expendable limit without cents</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-header *ngIf="hasBudget">
+    <div mat-card-avatar class="hor">
+      <mat-icon class="icon double" color="primary">receipt</mat-icon>
+    </div>
+    <mat-card-title>Item value [{{index+1}}]</mat-card-title>
+    <mat-card-subtitle> <strong>1</strong> Units</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div class="budget">{{budget}}</div>
+    <div class="budget" *ngIf="hasBudget">{{amount/100 | currency: 'USD': ''}}</div>
+    <div class="budget" *ngIf="!hasBudget">{{amount | currency: 'USD': '': '1.0-0': 'en-US'}}</div>
     <div class="numbers center grid">
       <div class="col" *ngFor="let group of options">
         <span class="box" *ngFor="let digit of group">
-          <button mat-fab (click)="command(digit)" *ngIf="!digit.icon"
-          [disabled]="isDisabled(digit)"
-          >
+          <button mat-fab (click)="command(digit)" *ngIf="!digit.icon" [disabled]="isDisabled(digit)">
             <div class="icon number">{{digit}}</div>
           </button>
-          <button mat-fab (click)="command(digit.digit)" *ngIf="digit.icon" color="primary" [disabled]="budget == 0 && digit.digit !='N'">
+          <button mat-fab (click)="command(digit.digit)" *ngIf="digit.icon" color="primary" [disabled]="isDisabled(digit.digit)">
             <div class="icon number">
               <mat-icon>{{digit.icon}}</mat-icon>
             </div>

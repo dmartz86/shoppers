@@ -88,6 +88,11 @@ body {
   text-align: right;
 }
 .numbers {
+  &.grid {
+    .col:first-child {
+      padding: 0;
+    }
+  }
   button {
     margin-bottom: 8px;
     margin-top: 8px;
@@ -101,4 +106,8 @@ body {
 }
 .center {
   text-align: center;
+}
+.hor {
+  padding-left: 16px;
+  padding-right: 16px;
 }
