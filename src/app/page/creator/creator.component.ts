@@ -56,11 +56,10 @@ export class CreatorComponent implements OnInit {
         }
         this.amount = 0;
         break;
-      case 'L':
-        this.index -= 1;
-        break;
-      case 'R':
-        this.index += 1;
+      case 'L': case 'R':
+        digit === 'L' ? this.index -= 1 : this.index += 1;
+        setTimeout(() =>
+          this.amount = this.items[this.index].amount * 100);
         break;
       default: break;
     }
